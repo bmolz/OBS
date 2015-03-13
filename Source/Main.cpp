@@ -39,10 +39,11 @@ HINSTANCE   hinstMain       = NULL;
 ConfigFile  *GlobalConfig   = NULL;
 ConfigFile  *AppConfig      = NULL;
 OBS         *App            = NULL;
-bool        bIsPortable     = false;
+bool        bIsPortable     = true;
 bool        bStreamOnStart  = false;
 TCHAR       lpAppPath[MAX_PATH];
 TCHAR       lpAppDataPath[MAX_PATH];
+TCHAR       lpOutputFile[MAX_PATH];
 
 //----------------------------
 
@@ -491,6 +492,11 @@ int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpCmdLine
         {
             if (++i < numArgs)
                 sceneCollection = args[i];
+        }
+        else if (scmpi(args[i], L"-out") == 0)
+        {
+          if (++i < numArgs)
+            scpy(lpOutputFile, args[i]);
         }
     }
 

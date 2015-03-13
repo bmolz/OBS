@@ -194,6 +194,13 @@ String GetOutputFilename(bool replayBuffer=false)
     
     strOutputFile = ExpandRecordingFilename(strOutputFile);
 
+    String strTemp;
+    strTemp << lpOutputFile;
+    if (strTemp.IsValid())
+    {
+      strOutputFile = strTemp;
+    }
+
     CreatePath(GetPathDirectory(strOutputFile));
 
     if (!bOverwrite && (hFind = OSFindFirstFile(strOutputFile, ofd)))

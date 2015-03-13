@@ -75,6 +75,7 @@ extern bool         bIsPortable;
 extern bool         bStreamOnStart;
 extern TCHAR        lpAppPath[MAX_PATH];
 extern TCHAR        lpAppDataPath[MAX_PATH];
+extern TCHAR        lpOutputFile[MAX_PATH];
 
 // this gets defined by the automatic building process
 #ifndef OBS_VERSION_SUFFIX
@@ -88,9 +89,9 @@ extern TCHAR        lpAppDataPath[MAX_PATH];
 #define OBS_VERSION_STRING_ANSI OBS_VERSION_STRING_RAW OBS_VERSION_SUFFIX
 #define OBS_VERSION_STRING      TEXT(OBS_VERSION_STRING_RAW) TEXT(OBS_VERSION_SUFFIX)
 
-#ifdef _DEBUG
+//#ifdef _DEBUG
 #define OBS_DISABLE_AUTOUPDATE 1
-#endif
+//#endif
 
 #if OBS_TEST_BUILD
 #define OBS_DISABLE_AUTOUPDATE 1
